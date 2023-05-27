@@ -1,9 +1,14 @@
 import { consultantDB } from "../../ConsultantData";
+import { useMatchingData } from "../../contexts/MatchingDataContext";
 import "./ConsultantCard.css";
 import React from "react";
 
 export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
+  const {state} = useMatchingData()
   const consultantCardData = consultantDB.find(({id}) =>(id === consultantId))
+  const shortListCandidate = () => {
+    dispatch
+  }
   return (
     <div className="consultant__card">
       <div className="consultant__avatar">
@@ -17,7 +22,7 @@ export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
           <p className="match__score__text">Match Score</p>
         </div>
         <p>{consultantCardData.manDayCost}</p>
-        <button className="shortlist__btn">Shortlist +</button>
+        <button onClick={shortListCandidate} className="shortlist__btn">Shortlist +</button>
       </div>
     </div>
   );

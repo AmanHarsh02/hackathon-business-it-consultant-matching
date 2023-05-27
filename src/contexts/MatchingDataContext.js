@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { consultantDB } from "../ConsultantData";
 
 const MatchingDataContext = createContext();
 
@@ -16,6 +17,14 @@ export function MatchingDataProvider({ children }) {
           ...request,
           matchedConsultants: [...request.matchedConsultants, payload],
         };
+
+        case "CONSULTANTS_LIST_REFRESH":
+        return{
+            ...request,
+            matchedConsultants: []
+        }
+        default:
+            return{...request}
     }
   };
   const initialState = {
@@ -31,15 +40,10 @@ export function MatchingDataProvider({ children }) {
   const [state, dispatch] = useReducer(FormReducer, initialState);
   const { matchedConsultants } = state;
 
-  // const consultantDB=[
-  //     {id:"Emp1",empDomain:["Edtech","FinTech"],software:["CRM","ERP","Order"],manDayCost:"500"},
-  //     {id:"Emp2",empDomain:["HealthTech","FinTech"],software:["CRM","ERP","Order"],manDayCost:"700"},
-  //     {id:"Emp3",empDomain:["Edtech","Manufacturing"],software:["CRM","ERP","Order"],manDayCost:"900"},
-  // ]
 
-  const matchCategories = (consultantDB) => {
+  const matchCategories = () => {
     const {
-      formFields: { domain, requiredSoftware, userNumber, budget, deadline },
+      formFields: { domain, requiredSoftware, budget, deadline },
     } = state;
     consultantDB?.map(({ id, empDomain, software, manDayCost }) => {
       let requirementMatch = 0;
@@ -56,6 +60,7 @@ export function MatchingDataProvider({ children }) {
       );
       if (requirementBudget > 100) requirementBudget = 100;
       addToMatchedConsultants(id, requirementMatch, requirementBudget);
+
     });
   };
   const addToMatchedConsultants = (
@@ -68,9 +73,8 @@ export function MatchingDataProvider({ children }) {
       payload: { consultantId, overallRating, budgetRating },
     });
   };
-  console.log(matchedConsultants);
   return (
-    <MatchingDataContext.Provider value={{ state, dispatch, matchCategories }}>
+    <MatchingDataContext.Provider value={{ state, dispatch, matchCategories,matchedConsultants }}>
       {children}
     </MatchingDataContext.Provider>
   );

@@ -49,7 +49,7 @@ export function MatchingDataProvider({ children }) {
 
   const matchCategories = (formData) => {
     if (!formData) {
-      // console.log("Form data is undefined");
+      console.log("Form data is undefined");
       return;
     }
   

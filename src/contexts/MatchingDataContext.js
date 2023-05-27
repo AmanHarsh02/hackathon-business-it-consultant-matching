@@ -41,29 +41,36 @@ export function MatchingDataProvider({ children }) {
   const { matchedConsultants } = state;
 
 
-  const matchCategories = () => {
-    const {
-      formFields: { requiredDomain, requiredSoftware, budget, deadline },
-    } = state;
+  const matchCategories = (formData) => {
+    if (!formData) {
+      // Handle the case where formData is undefined
+      console.log("Form data is undefined");
+      return;
+    }
+  
+    const { requiredDomain, requiredSoftware, budget, deadline } = formData;
+    console.log(formData);
+  
     consultantDB?.map(({ id, empDomain, software, manDayCost }) => {
       let requirementMatch = 0;
       let requirementBudget = 0;
   
-      requirementMatch =
-      empDomain.reduce((acc,{domain,projects})=>(domain===requiredDomain ? acc*projects: acc),1) +
-        software.reduce(
-          (acc, curr) => (curr === requiredSoftware ? acc + 1 : acc),
-          0
-        ); 
-        console.log(requirementMatch);
+      requirementMatch = empDomain.reduce(
+        (acc, { domain, projects }) =>
+          domain === requiredDomain ? acc * projects : acc,
+        1
+      ) + software.reduce((acc, curr) => (curr === requiredSoftware ? acc + 1 : acc), 0);
+  
       requirementBudget = Math.floor(
         (Number(budget) / (Number(deadline) * Number(manDayCost))) * 100
       );
       if (requirementBudget > 100) requirementBudget = 100;
+  
       addToMatchedConsultants(id, requirementMatch, requirementBudget);
-
+      console.log(matchedConsultants)
     });
   };
+  
   const addToMatchedConsultants = (
     consultantId,
     overallRating,

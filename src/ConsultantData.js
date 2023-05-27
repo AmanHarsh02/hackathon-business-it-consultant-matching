@@ -1,5 +1,3 @@
-
-
   export const consultantDB = [
     { id: "Emp1", empName: "John Doe", empDescription: "Experienced consultant", empDomain: [
       { domain: "HealthTech", projects: 3 },

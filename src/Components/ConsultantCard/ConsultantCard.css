@@ -1,9 +1,14 @@
 .consultant__card {
+  position: relative;
   display: flex;
+  gap: 1rem;
   max-width: 60%;
   min-width: 400px;
   background-color: #202020;
-  color: #7d7d7d;
+  color: white;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 20px lightgray;
 }
 
 .consultant__card > h3 {
@@ -18,6 +23,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
   font-weight: bold;
   color: white;
+}
+
+.consultant__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.match__score__badge__container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.match__score__badge {
+  color: white;
+  height: max-content;
+  width: max-content;
+  padding: 1.2rem 0.8rem;
+  border-radius: 50%;
+  background-color: #039a00;
+}
+
+.match__score__text {
+  font-size: small;
+}
+
+.shortlist__btn {
+  cursor: pointer;
+  padding: 0.4rem 1rem;
+  color: white;
+  background-color: #039a00;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.shortlist__btn:hover {
+  color: #039a00;
+  background-color: white;
+  outline: 2px solid #039a00;
+  transition: 0.15s ease-in;
 }

@@ -1,35 +1,41 @@
 import React from "react";
+import { forwardRef } from "react";
 
-export const SelectOption = ({ label, options }) => {
+
+export const SelectOption = forwardRef(({ label, options }, ref) => {
+  const selectId = label.toLowerCase().replace(" ", "_");
+
   return (
     <div className="form-option">
-      <label htmlFor="">{label}</label>
-      <select
-        name={label.toLowerCase().replace(" ", "_")}
-        id={label.toLowerCase().replace(" ", "_")}
-      >
-        <option disabled selected value>
+      <label htmlFor={selectId}>{label}</label>
+      <select name={selectId} id={selectId} ref={ref}>
+        <option disabled defaultValue="">
           Select one
         </option>
         {options.map((option) => (
-          <option key={option} value={option.toLowerCase().replace(" ", "_")}>
+          <option key={option} value={option}>
             {option}
           </option>
         ))}
       </select>
     </div>
   );
-};
+});
 
-export const InputOption = ({ label, type }) => {
+export const InputOption = forwardRef(({ label, type }, ref) => {
+  const inputId = label.toLowerCase().replace(" ", "_");
+
   return (
     <div className="form-option">
-      <label htmlFor="">{label}</label>
+      <label htmlFor={inputId}>{label}</label>
       <input
         type={type}
-        name={label.toLowerCase().replace(" ", "_")}
-        id={label.toLowerCase().replace(" ", "_")}
+        name={inputId}
+        id={inputId}
+        ref={ref}
       />
     </div>
   );
-};
+});
+
+

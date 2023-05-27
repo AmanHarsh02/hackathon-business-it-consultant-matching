@@ -1,4 +1,4 @@
-.consultant__card {
+/* .consultant__card {
   position: relative;
   display: flex;
   gap: 1rem;
@@ -73,4 +73,44 @@
   background-color: white;
   outline: 2px solid #039a00;
   transition: 0.15s ease-in;
+} */
+
+/* my container */
+.consultant-container {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  height: 15rem;
+  
+}
+.head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.match-container {
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.footer-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-container button {
+  background-color: #24211F;
+  color:white;
+  border:0px;
+  border-radius:6px ;
+  padding:30px 15px;
+  font-size: 21px;
+}
+.price-container {
+  display: flex;
+  flex-direction: column;
 }

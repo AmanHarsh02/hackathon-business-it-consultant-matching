@@ -1,4 +1,4 @@
-.consultant__card__container {
+/* .consultant__card__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,4 +7,43 @@
 
 .client__overview__container {
   margin-top: 2rem;
+} */
+.consultant-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10rem;
+  width: 10rem;
+  height: 15rem;
+  border: 1px solid;
+  
+}
+.head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.match-container {
+  display: flex;
+  flex-direction: column;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.footer-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer-container button {
+  background-color: #24211F;
+  color:white;
+  border:0px;
+  border-radius:6px ;
+  padding:0.3rem;
+}
+.price-container {
+  display: flex;
+  flex-direction: column;
 }

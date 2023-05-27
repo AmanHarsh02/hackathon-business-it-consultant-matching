@@ -1,4 +1,23 @@
 .consultant__card {
+  display: flex;
   max-width: 60%;
+  min-width: 400px;
   background-color: #202020;
+  color: #7d7d7d;
+}
+
+.consultant__card > h3 {
+  color: white;
+}
+
+.consultant__avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
 }

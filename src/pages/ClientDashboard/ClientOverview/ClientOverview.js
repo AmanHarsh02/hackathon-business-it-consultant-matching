@@ -1,3 +1,4 @@
+import "../ClientOverview/ClientOverview.css";
 import { ConsultantCard } from "../../../Components/index";
 
 export function ClientOverview() {

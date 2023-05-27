@@ -1,3 +1,5 @@
+import { SelectOption, InputOption } from "./FormOptions";
+
 export function ClientRequestForm() {
   return (
     <>

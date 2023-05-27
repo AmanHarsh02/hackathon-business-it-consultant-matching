@@ -6,11 +6,15 @@ export const ConsultantCard = ({
 }) => {
   return (
     <div className="consultant__card">
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <article>{description}</article>
-      <p>{matchedScore}</p>
-      <p>{mandayHours}</p>
+      <div className="consultant__avatar">
+        {`${name.split(" ")[0][0]} ${name.split(" ")[1][0]}`}
+      </div>
+      <div>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <p>{matchedScore}</p>
+        <p>{mandayHours}</p>
+      </div>
     </div>
   );
 };

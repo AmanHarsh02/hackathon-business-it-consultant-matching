@@ -8,6 +8,7 @@ import {
 } from "./pages/index";
 
 import { ProtectedRoute } from "./Components/index";
+import { Chat } from "./Components/chat/Chat";
 
 import "./App.css";
 
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/auth"} element={<Auth />} />
+        <Route path={"/chat"} element={<Chat />} />
 
         <Route
           path={"/client-profile"}

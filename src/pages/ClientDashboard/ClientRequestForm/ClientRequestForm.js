@@ -1,3 +1,5 @@
+import { SelectOption, InputOption } from "./FormOptions";
+
 export function ClientRequestForm() {
   const domainsOfExpertise = ["Ed Tech", "HR", "XYZ"];
   const softwareOptions = ["Option 1", "Option 2", "Option 3"];

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export function ClientRequestForm() {
   const domainsOfExpertise = ["EdTech", "Fintech", "HealthTech", "AgTech", "SAAS"];
   const softwareOptions = ["CRM", "ERP", "Order"];
-  const { state, dispatch, matchCategories, matchedConsultants } = useMatchingData();
+  const { state, dispatch, matchCategories} = useMatchingData();
 
   const refreshHandler = () => {
     dispatch({ type: "CONSULTANTS_LIST_REFRESH" });

@@ -23,6 +23,12 @@ export function MatchingDataProvider({ children }) {
             ...request,
             matchedConsultants: []
         }
+        case "CONSULTANTS_SHORTLIST":
+            return {
+              ...request,
+              shortListedConsultants: [...request.shortListedConsultants, payload]
+            };
+        
         default:
             return{...request}
     }
@@ -36,20 +42,18 @@ export function MatchingDataProvider({ children }) {
       deadline: "20",
     },
     matchedConsultants: [],
+    shortListedConsultants:[]
   };
   const [state, dispatch] = useReducer(FormReducer, initialState);
   const { matchedConsultants } = state;
 
-
   const matchCategories = (formData) => {
     if (!formData) {
-      // Handle the case where formData is undefined
       console.log("Form data is undefined");
       return;
     }
   
     const { requiredDomain, requiredSoftware, budget, deadline } = formData;
-    console.log(formData);
   
     consultantDB?.map(({ id, empDomain, software, manDayCost }) => {
       let requirementMatch = 0;
@@ -67,7 +71,6 @@ export function MatchingDataProvider({ children }) {
       if (requirementBudget > 100) requirementBudget = 100;
   
       addToMatchedConsultants(id, requirementMatch, requirementBudget);
-      console.log(matchedConsultants)
     });
   };
   

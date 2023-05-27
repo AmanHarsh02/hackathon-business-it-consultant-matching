@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./Components/index";
 import { Chat } from "./Components/chat/Chat";
 
 import "./App.css";
+import ClientShortListed from "./pages/ClientDashboard/ClientShortListed/ClientShortListed";
 
 function App() {
   return (
@@ -42,6 +43,15 @@ function App() {
             // <ProtectedRoute>
               
               <ClientRequestForm />
+            // </ProtectedRoute>
+          }
+        />
+        <Route
+          path={"/client-shortlist"}
+          element={
+            // <ProtectedRoute>
+              
+              <ClientShortListed />
             // </ProtectedRoute>
           }
         />

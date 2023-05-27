@@ -5,12 +5,10 @@ import React from "react";
 
 export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
   const {state,dispatch} = useMatchingData()
-  console.log(consultantId)
   const consultantCardData = consultantDB.find(({id}) =>(id === consultantId))
   const shortListCandidate = () => {
-    dispatch({type:"CONSULTANTS_SHORTLIST",payload:consultantId})
+    dispatch({type:"CONSULTANTS_SHORTLIST",payload:{consultantId,overallRating,budgetRating}})
   }
-  console.log(consultantCardData)
   return (
     <div className="consultant__card">
       <div className="consultant__avatar">

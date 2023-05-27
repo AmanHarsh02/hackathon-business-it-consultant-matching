@@ -6,7 +6,7 @@ const ClientShortListed = () => {
     const{state} = useMatchingData()
     console.log(state)
   return (
-    <div>{state?.shortListedConsultants?.map(({clientId})=><ConsultantCard consultantId={clientId} />)}</div>
+    <div>{state?.shortListedConsultants?.map((clientInfo)=><ConsultantCard {...clientInfo} />)}</div>
   )
 }
 

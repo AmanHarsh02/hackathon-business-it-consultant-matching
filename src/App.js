@@ -7,7 +7,7 @@ import {
   Auth,
 } from "./pages/index";
 
-import { ProtectedRoute } from "./components/index";
+import { ProtectedRoute } from "./Components/index";
 
 import "./App.css";
 
@@ -29,9 +29,9 @@ function App() {
         <Route
           path={"/client-overview"}
           element={
-            <ProtectedRoute>
-              <ClientOverview />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <ClientOverview />
+            // </ProtectedRoute>
           }
         />
         <Route

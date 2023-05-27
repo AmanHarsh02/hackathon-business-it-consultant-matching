@@ -1,7 +1,7 @@
 import "../Auth/Auth.css";
 import { useAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
-import { LoginForm, SignupForm } from "../../components/index";
+import { LoginForm, SignupForm } from "../../Components/index";
 
 const testUser = {
   email: "testuser@gmail.com",

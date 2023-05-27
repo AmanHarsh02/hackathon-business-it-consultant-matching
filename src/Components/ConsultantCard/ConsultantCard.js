@@ -27,21 +27,26 @@ export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
     </div> */}
     <div className="consultant-container">
       <div className="head-container">
-        <img src="https://e1.pxfuel.com/desktop-wallpaper/429/293/desktop-wallpaper-coque-et-etui-iphone-luffy-smiling-zoro-aesthetic-ps4-thumbnail.jpg" alt="" widht={135} height={150}/>
+      <div className="">
+        {`${consultantCardData?.empName.split(" ")[0][0]} ${consultantCardData.empName.split(" ")[1][0]}`}
+      </div>
+        <img src="/images/Group 1.svg"/>
+        <div>
+        </div>
         <div className="match-container">
-          <p>70%</p>
+          <p className="match-score">{overallRating/5 * 100}%</p>
           <small>Match Score</small>
         </div>
 
         <div className="main-container">
-          <b>Company Name</b>
-          <p>This is the favorite company of all time</p>
+          <b>{consultantCardData?.empName}</b>
+          <p>{consultantCardData?.empDescription}</p>
         </div>
 
         <div className="footer-container">
           <button>Shortlist</button>
           <div className="price-container">
-            <strong>100000Rs</strong>
+            <strong>{consultantCardData.manDayCost * state.formFields.deadline}</strong>
             <small>Effort Estimate</small>
           </div>
         </div>
@@ -51,11 +56,3 @@ export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
     </>
   );
 };
-
-// [{consultantId,overallRating,budgetRating}]
-// lin 13full card container
-// line 14 avatar: image (JD)
-// line 17 consultant k details, Name n descrition
-// line 25 short list ka button
-// together with stars
-// line 20 container is match score container, it was circle, now its clean number

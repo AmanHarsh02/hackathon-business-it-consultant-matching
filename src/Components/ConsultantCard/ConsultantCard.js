@@ -4,10 +4,11 @@ import "./ConsultantCard.css";
 import React from "react";
 
 export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {
-  const {state} = useMatchingData()
+  const {state,dispatch} = useMatchingData()
   const consultantCardData = consultantDB.find(({id}) =>(id === consultantId))
   const shortListCandidate = () => {
-    dispatch
+    dispatch({type:"CONSULTANTS_SHORTLIST",payload:consultantId})
+    console.log(state)
   }
   return (
     <div className="consultant__card">

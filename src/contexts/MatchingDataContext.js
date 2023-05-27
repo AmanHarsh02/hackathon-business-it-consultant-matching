@@ -3,10 +3,6 @@ import { createContext, useContext, useReducer } from "react";
 const MatchingDataContext = createContext();
 
 export function MatchingDataProvider({ children }) {
-<<<<<<< Updated upstream
-  return (
-    <MatchingDataContext.Provider>{children}</MatchingDataContext.Provider>
-=======
   const FormReducer = (request, { type, payload, inputField }) => {
     switch (type) {
       case "CHANGE_TEXT":
@@ -77,7 +73,6 @@ export function MatchingDataProvider({ children }) {
     <MatchingDataContext.Provider value={{ state, dispatch, matchCategories }}>
       {children}
     </MatchingDataContext.Provider>
->>>>>>> Stashed changes
   );
 }
 

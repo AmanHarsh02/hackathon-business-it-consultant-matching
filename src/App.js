@@ -1,25 +1,48 @@
 import { Route, Routes } from "react-router";
 import {
   Home,
-  Login,
-  Signup,
   ClientProfile,
   ClientOverview,
   ClientRequestForm,
+  Auth,
 } from "./pages/index";
+
+import { ProtectedRoute } from "./components/index";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hackoverflow</h1>
       <Routes>
         <Route path={"/"} element={<Home />} />
-        <Route path={"/login"} element={<Login />} />
-        <Route path={"/signup"} element={<Signup />} />
-        <Route path={"/client-profile"} element={<ClientProfile />} />
-        <Route path={"/client-overview"} element={<ClientOverview />} />
-        <Route path={"/client-request"} element={<ClientRequestForm />} />
+        <Route path={"/auth"} element={<Auth />} />
+
+        <Route
+          path={"/client-profile"}
+          element={
+            <ProtectedRoute>
+              <ClientProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={"/client-overview"}
+          element={
+            <ProtectedRoute>
+              <ClientOverview />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={"/client-request"}
+          element={
+            <ProtectedRoute>
+              {" "}
+              <ClientRequestForm />{" "}
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

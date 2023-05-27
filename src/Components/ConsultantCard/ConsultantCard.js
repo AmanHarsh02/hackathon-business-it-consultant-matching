@@ -1,5 +1,5 @@
 import { consultantDB } from "../../ConsultantData";
-import "../ConsultantCard/ConsultantCard.css";
+import "./ConsultantCard.css";
 import React from "react";
 
 export const ConsultantCard = ({consultantId,overallRating,budgetRating}) => {

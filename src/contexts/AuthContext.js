@@ -23,6 +23,7 @@ const authInitialState = {
 export function AuthProvider({ children }) {
   const [authState, authDispatch] = useReducer(authReducer, authInitialState);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInConsultant,setLoggedInConsultant]=useState({});
 
   console.log(authState);
 
@@ -36,6 +37,19 @@ export function AuthProvider({ children }) {
       setIsLoggedIn(true);
     }
   };
+  const consultantLoginHandler=(consultantDB,consultantEmail)=>
+  {
+    let findConsultant= consultantDB.find(({email})=>email===consultantEmail);
+    if(findConsultant)
+    {
+      setIsLoggedIn(true);
+      setLoggedInConsultant(findConsultant);
+    }
+    else {
+      alert("Please enter valid credentials");
+    }
+  }
+
 
   return (
     <AuthContext.Provider
@@ -44,6 +58,7 @@ export function AuthProvider({ children }) {
         password: authState.password,
         isLoggedIn,
         authDispatch,
+        consultantLoginHandler
       }}
     >
       {children}

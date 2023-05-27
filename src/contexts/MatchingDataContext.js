@@ -34,6 +34,7 @@ export function MatchingDataProvider({ children }) {
       userNumber: "23",
       budget: "10000",
       deadline: "20",
+      technicalExpertise:"webDev"
     },
     matchedConsultants: [],
   };
@@ -43,17 +44,18 @@ export function MatchingDataProvider({ children }) {
 
   const matchCategories = () => {
     const {
-      formFields: { domain, requiredSoftware, budget, deadline },
+      formFields: { domain, requiredSoftware,technicalExpertise, budget, deadline },
     } = state;
-    consultantDB?.map(({ id, empDomain, software, manDayCost }) => {
+    consultantDB?.map(({ id, empDomain, software,techExpertise, manDayCost }) => {
       let requirementMatch = 0;
       let requirementBudget = 0;
+      let expertiseRating=0;
       requirementMatch =
         empDomain.reduce((acc, curr) => (curr === domain ? acc + 1 : acc), 0) +
         software.reduce(
           (acc, curr) => (curr === requiredSoftware ? acc + 1 : acc),
           0
-        );
+        ); 
 
       requirementBudget = Math.floor(
         (Number(budget) / (Number(deadline) * Number(manDayCost))) * 100

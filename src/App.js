@@ -9,6 +9,7 @@ import {
 
 import { ProtectedRoute } from "./Components/index";
 import { Chat } from "./Components/chat/Chat";
+import { NavBar } from "./Components/navbar/NavBar";
 
 import "./App.css";
 import ClientShortListed from "./pages/ClientDashboard/ClientShortListed/ClientShortListed";
@@ -16,6 +17,7 @@ import ClientShortListed from "./pages/ClientDashboard/ClientShortListed/ClientS
 function App() {
   return (
     <div className="App">
+      {/* <NavBar /> */}
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/auth"} element={<Auth />} />

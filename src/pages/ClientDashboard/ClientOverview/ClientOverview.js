@@ -1,4 +1,3 @@
-import "../ClientOverview/ClientOverview.css";
 import { ConsultantCard } from "../../../Components/index";
 import { useMatchingData } from "../../../contexts/MatchingDataContext";
 import { Link } from "react-router-dom";

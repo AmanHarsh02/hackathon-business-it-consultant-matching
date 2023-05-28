@@ -34,7 +34,7 @@ export const NavBar=()=>
       padding:"1rem",
       fontSize:"1.4rem"
     
-    };}}>Conversations</NavLink>
+    };}}>DashBoard</NavLink>
             </div>
 
         </nav>

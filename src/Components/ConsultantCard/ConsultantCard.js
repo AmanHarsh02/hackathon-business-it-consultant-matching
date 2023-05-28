@@ -1,6 +1,7 @@
 import { consultantDB } from "../../ConsultantData";
 import { useMatchingData } from "../../contexts/MatchingDataContext";
 import "./ConsultantCard.css";
+
 import React from "react";
 
 export const ConsultantCard = ({consultantId,overallRating,budgetRating},isShorlisted) => {
@@ -12,7 +13,7 @@ export const ConsultantCard = ({consultantId,overallRating,budgetRating},isShorl
   return (<>
 
     <div className="consultant-container">
-      <div className="head-container">
+      <div className="head-container" >
         <img src="/images/Group 1.svg"/>
         <div>
         </div>

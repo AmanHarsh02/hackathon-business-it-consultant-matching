@@ -2,6 +2,7 @@ import "./chat.css";
 
 import { useContext } from "react";
 
+import { NavBar } from "../navbar/NavBar";
 import { ChatContext } from "../../contexts/ChatContext";
 
 export const Chat=()=>
@@ -10,7 +11,7 @@ export const Chat=()=>
     const {allMessages,newMessage}=state;
 
     return (<>
-        <h1>This is Nav</h1>
+        <NavBar />
         <div className="chat-component">
             <div className="chat-container">
                 <div className="head-container"><h2 style={{textAlign:"left"}}>{allMessages[2].name} <span className="active"> . </span></h2>

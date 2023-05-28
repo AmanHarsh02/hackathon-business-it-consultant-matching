@@ -9,6 +9,7 @@ import {
 
 import { ProtectedRoute } from "./Components/index";
 import { Chat } from "./Components/chat/Chat";
+import { NavBar } from "./Components/navbar/NavBar";
 
 import "./App.css";
 import ClientShortListed from "./pages/ClientDashboard/ClientShortListed/ClientShortListed";

@@ -73,6 +73,7 @@ padding:0 1rem;
     justify-content: center;
 }
 .head-container {
+    display: inline-block;
     margin-bottom:1rem;
 }
 body {

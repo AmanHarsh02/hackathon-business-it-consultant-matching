@@ -19,7 +19,7 @@ export const ChatProvider=({children})=>
                     }
                     return item;
                   });
-                return {...chat,allMessages:updatedAllMessages};
+                return {...chat,allMessages:updatedAllMessages,newMessage:""};
                     
             
             default:

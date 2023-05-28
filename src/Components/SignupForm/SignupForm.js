@@ -1,6 +1,8 @@
 import "../SignupForm/SignupForm.css";
+import { useNavigate } from "react-router";
 
 export const SignupForm = () => {
+  const navigate=useNavigate();
   return (
     <div id="signup">
       <h1>Sign Up for Free</h1>
@@ -36,7 +38,7 @@ export const SignupForm = () => {
           <input type="password" required autoComplete="off" />
         </div>
 
-        <button type="submit" className="button button-block">
+        <button type="submit" className="button button-block" onClick={()=>navigate("/client-request")}>
           Get Started
         </button>
       </form>

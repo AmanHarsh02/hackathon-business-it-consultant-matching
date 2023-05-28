@@ -1,6 +1,8 @@
 import "../LoginForm/LoginForm.css";
+import { useNavigate } from "react-router";
 
 export const LoginForm = () => {
+  const navigate=useNavigate();
   return (
     <div id="login">
       <h1>Welcome Back!</h1>
@@ -24,7 +26,7 @@ export const LoginForm = () => {
           <a href="#">Forgot Password?</a>
         </p>
 
-        <button className="button button-block">Log In</button>
+        <button className="button button-block" onClick={()=>navigate("/client-request")}>Log In</button>
       </form>
     </div>
   );

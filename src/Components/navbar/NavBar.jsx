@@ -3,8 +3,6 @@ import "./NavBar.css";
 
 export const NavBar=()=>
 {
-
-
     return (
         <nav>
             <svg width="316" height="64" viewBox="0 0 316 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,10 +16,18 @@ export const NavBar=()=>
       color: "black",
       padding:"1rem",
       fontSize:"1.4rem"
-    
     };
   }}>ShortList</NavLink>
+
             <NavLink to={"/chat"} style={({ isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color:"black",
+      padding:"1rem",
+      fontSize:"1.4rem"
+    
+    };}}>Conversations</NavLink>
+            <NavLink to={"/client-overview"} style={({ isActive}) => {
     return {
       fontWeight: isActive ? "bold" : "",
       color:"black",

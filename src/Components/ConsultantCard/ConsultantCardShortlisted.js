@@ -1,13 +1,15 @@
+import { useNavigate } from "react-router";
 import { consultantDB } from "../../ConsultantData";
 import { useMatchingData } from "../../contexts/MatchingDataContext";
 import "./ConsultantCard.css";
 import React from "react";
 
-export const ConsultantCard = ({consultantId,overallRating,budgetRating},isShorlisted) => {
+export const ConsultantCardShortlisted = ({consultantId,overallRating,budgetRating},isShorlisted) => {
   const {state,dispatch} = useMatchingData()
+  const navigate = useNavigate()
   const consultantCardData = consultantDB.find(({id}) =>(id === consultantId))
   const shortListCandidate = () => {
-    dispatch({type:"CONSULTANTS_SHORTLIST",payload:{consultantId,overallRating,budgetRating}})
+    navigate("/chat")
   }
   return (<>
 
@@ -31,7 +33,7 @@ export const ConsultantCard = ({consultantId,overallRating,budgetRating},isShorl
             <strong>{consultantCardData.manDayCost * state.formFields.deadline}</strong>
             <small>Effort Estimate</small>
           </div>
-          <button onClick={shortListCandidate}>Shortlist</button>
+          <button onClick={shortListCandidate}>Get Quote</button>
         </div>
       </div>
 

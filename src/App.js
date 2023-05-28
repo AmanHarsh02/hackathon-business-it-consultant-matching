@@ -17,7 +17,6 @@ import ClientShortListed from "./pages/ClientDashboard/ClientShortListed/ClientS
 function App() {
   return (
     <div className="App">
-      {/* <NavBar /> */}
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/auth"} element={<Auth />} />

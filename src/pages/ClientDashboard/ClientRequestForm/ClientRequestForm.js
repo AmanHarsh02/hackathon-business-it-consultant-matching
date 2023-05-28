@@ -2,11 +2,17 @@ import React, { useRef, useState } from "react";
 import { useMatchingData } from "../../../contexts/MatchingDataContext";
 import { SelectOption, InputOption } from "./FormOptions";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import "./ClientRequestForm.css"
+
+import { NavBar } from "../../../Components/navbar/NavBar";
 
 export function ClientRequestForm() {
   const domainsOfExpertise = ["EdTech", "Fintech", "HealthTech", "AgTech", "SAAS"];
   const softwareOptions = ["CRM", "ERP", "Order"];
   const { state, dispatch, matchCategories} = useMatchingData();
+  const navigate=useNavigate();
 
   const refreshHandler = () => {
     dispatch({ type: "CONSULTANTS_LIST_REFRESH" });
@@ -40,19 +46,34 @@ export function ClientRequestForm() {
     refreshHandler();
     matchCategories();
     sendRequirements();
+    navigate("./client-overview");
   };
 
-  return (
-    <div>
-      <Link to="/client-overview">go to clientOverview</Link>
+  return (<>
+  <NavBar />
+    <div className="request-form-container">
+      
       <h1>Request Form</h1>
-      <SelectOption label="Domain of Expertise" ref={expertiseRef} options={domainsOfExpertise} />
-      <SelectOption label="Software" ref={softwareRef} options={softwareOptions} />
-      <InputOption label="Number of Users" type="number" ref={numOfUsersRef} />
-      <InputOption label="Budget" type="text" ref={budgetRef} />
-      <InputOption label="Start Date" type="date" ref={startDateRef} />
-      <InputOption label="End Date" type="date" ref={endDateRef} />
-      <button onClick={clickHandler}>Submit</button>
+
+      <label htmlFor="domainExpertise">Select your Domain</label>
+      <SelectOption id="domainExpertise" label="Domain of Expertise" ref={expertiseRef} options={domainsOfExpertise} />
+
+      <label htmlFor="software">Software Requirement</label>
+      <SelectOption id="software" label="Software" ref={softwareRef} options={softwareOptions} />
+
+      <label htmlFor="users">Number of Users you are expecting for your app</label>
+      <InputOption  id="users" label="Number of Users" type="number" ref={numOfUsersRef} />
+
+      <label htmlFor="Budget">Budget</label>
+      <InputOption  id="Budget" label="Budget" type="text" ref={budgetRef} />
+
+      <label htmlFor="start-date">Project Start Date</label>
+      <InputOption  id="start-date" label="Start Date" type="date" ref={startDateRef} />
+
+      <label htmlFor="end-date">Project End</label>
+      <InputOption  id="end-date" label="End Date" type="date" ref={endDateRef} />
+      <button onClick={clickHandler} className="form-button">Submit</button>
     </div>
+    </>
   );
 }

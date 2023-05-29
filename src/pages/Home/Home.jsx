@@ -1,8 +1,9 @@
 import "./Home.css";
 
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export function Home() {
+  const navigate = useNavigate()
   return (
     <>
       <div className="landingPagedemo1">
@@ -19,7 +20,7 @@ export function Home() {
                         <h1>Business Man</h1>
                         <h3>Meet the best consultants as per your requirements</h3>
                         <div className="demo1nav">
-            <button>Login</button>
+            <button onClick={()=>navigate("/client-request")}>Login</button>
         </div>
                     </div>
                     <div className="hr">

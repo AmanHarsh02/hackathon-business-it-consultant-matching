@@ -46,7 +46,7 @@ export function ClientRequestForm() {
     refreshHandler();
     matchCategories();
     sendRequirements();
-    navigate("./client-overview");
+    navigate("/client-overview");
   };
 
   return (<>
